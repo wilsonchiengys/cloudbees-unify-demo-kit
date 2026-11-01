@@ -34,6 +34,7 @@ jobs:
   deploy:
     steps:
       - name: Simulate deployment
+        kind: deploy
         uses: docker://alpine:3.20
         shell: sh
         run: |
@@ -47,7 +48,6 @@ jobs:
             echo "Non-production policy: standard checks passed"
           fi
           echo "Deploy status: SUCCESS (simulated)"
-
       - name: Register deployed artifact
         uses: cloudbees-io/register-deployed-artifact@v2
         with:
