@@ -47,6 +47,12 @@ jobs:
             echo "Non-production policy: standard checks passed"
           fi
           echo "Deploy status: SUCCESS (simulated)"
+
+      - name: Register deployed artifact
+        uses: cloudbees-io/register-deployed-artifact@v2
+        with:
+          artifact-id: 267057d7-3dac-4e96-9bd4-4009682e8da5
+          target-environment: ${{ inputs.environment }}
       - name: Publish evidence
         uses: https://github.com/cloudbees-io/publish-evidence-item@v1
         with:
